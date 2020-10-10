@@ -1,10 +1,10 @@
-#english to pig latin 
-print("Enter the englidh  message to translate into pig latin:")
+#Rnglish to Pig Latin 
+print("Enter the English  message to translate into Pig Latin:")
 message=input()
-vowels = ("a","e","i","o","u","y")
+vowels = ("a","e","i","o","u")
 pig_latin=[]
 for word in message.split():
-	
+	#Separate the non-letters at the start of this word :
 	prefixNonLetters=" "
 	while len(word)>0 and not word[0].isalpha():
 		prefixNonLetters += word[0]
@@ -12,7 +12,7 @@ for word in message.split():
 	if len(word)==0:
 		pigLatin.append(prefixNonLetters)
 		continue
-		
+	# Separate the non-letters at the end of this word :
 	suffixNonLetter=" "
 	while not word[-1].isalpha():
 		 suffixNonLetter += word[-1]
@@ -23,12 +23,12 @@ for word in message.split():
 	wasTitle = word.istitle()
 	word = word.lower()#make the word lowercase for translation
 	
-	#separaratw tjw consonants at thw start of this word :
+	#Separarate the consonants at thw start of this word :
 		prefixConsonants = " "
 		while len(word) > 0 and not word[0] in vowels :
 			prefixConstants += word[0]
 			word = word[1:]
-		#add the pig latin ending of the word
+		#Add the pig latin ending of the word
 		if prefixConstants != " ":
 			word += prefixConstants + "ay"
 		else:
@@ -39,7 +39,7 @@ for word in message.split():
 		if wasTitle:
 			word = word.title()
 			
-		#add the non-letters back to the start or end  of the word.
+		#Add the non-letters back to the start or end  of the word.
 		pigLatin.append(prefixNonLetters+word+suffixNonLetter)
 #Join all the   back together into a single string.
 print (" ".join(pigLatin))
